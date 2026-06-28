@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- HOP — Landing page (single file, served via GitHub Pages at mhmtkas.github.io/hop-landing).
+     Optional follow-ups: add a 1200×630 og.png + restore og:image; swap the CSS badges for the
+     official Apple/Google store badge art; add the real Google Play link at Android launch. -->
+
+<title>Hop — The ADHD focus app that shows you one step at a time</title>
+<meta name="description" content="Hop is a focus app for ADHD brains. It shows you one small step at a time — no lists, no streaks, no guilt. Brain dump, and Hop breaks it down. Free to start." />
+
+<!-- iOS Smart App Banner (Safari'de native indirme bandı) -->
+<meta name="apple-itunes-app" content="app-id=6779776126" />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hop — one step at a time, for ADHD brains" />
+<meta property="og:description" content="A focus app that shows you one small step at a time. No lists, no streaks, no guilt." />
+<meta property="og:url" content="https://mhmtkas.github.io/hop-landing/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="canonical" href="https://mhmtkas.github.io/hop-landing/" />
+<meta name="theme-color" content="#6C5CE7" />
+
+<!-- Fonts: Gabarito (display) + Figtree (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Structured data: SoftwareApplication.
+     NOT: aggregateRating'i BİLEREK eklemedik — 5+ gerçek yorum olmadan ekleme (manuel ceza riski). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Hop",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "iOS, Android",
+  "description": "A focus app for ADHD brains that shows you one small step at a time. No lists, no streaks, no guilt.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+
+<style>
+  :root{
+    --bg:#FAF8F5; --card:#FFFFFF; --ink:#141519; --muted:#5C5F66;
+    --purple:#6C5CE7; --purple-2:#5a4bd6; --purple-soft:#EEEBFD; --line:#EAE6DF;
+    --radius:20px; --maxw:1080px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#141519; --card:#1E2026; --ink:#F3F1EE; --muted:#A9ADB6;
+           --purple:#8B7CF6; --purple-2:#7a6bef; --purple-soft:#23222e; --line:#2A2C34; }
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:var(--bg); color:var(--ink);
+        font-family:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+        line-height:1.6; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3{ font-family:"Gabarito",sans-serif; line-height:1.12; letter-spacing:-0.02em; margin:0 0 .4em; }
+  h1{ font-size:clamp(2.1rem,5.4vw,3.6rem); font-weight:800; }
+  h2{ font-size:clamp(1.6rem,3.6vw,2.4rem); font-weight:700; }
+  h3{ font-size:1.18rem; font-weight:700; }
+  p{ margin:0 0 1rem; color:var(--muted); }
+  a{ color:var(--purple); }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 22px; }
+  section{ padding:72px 0; }
+  .eyebrow{ font-weight:600; color:var(--purple); text-transform:uppercase; letter-spacing:.08em; font-size:.8rem; margin-bottom:.7rem; }
+
+  /* Header */
+  header{ position:sticky; top:0; z-index:10; backdrop-filter:saturate(140%) blur(10px);
+          background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--line); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:62px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-family:"Gabarito"; font-weight:800; font-size:1.25rem; color:var(--ink); text-decoration:none; }
+  .brand .mark{ width:26px; height:26px; border-radius:8px; background:var(--purple); display:inline-block; }
+  .nav a.cta{ font-weight:600; color:#fff; background:var(--purple); padding:9px 16px; border-radius:12px; text-decoration:none; font-size:.95rem; }
+
+  /* Hero */
+  .hero{ display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; padding-top:64px; }
+  .hero .lede{ font-size:1.2rem; color:var(--muted); max-width:30ch; }
+  .badges{ display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 12px; }
+  .trust{ font-size:.92rem; color:var(--muted); }
+  .trust b{ color:var(--ink); font-weight:600; }
+
+  /* Store badge buttons (resmî rozetle değiştirilebilir) */
+  .badge{ display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--bg);
+          text-decoration:none; padding:11px 16px; border-radius:13px; min-width:165px; }
+  .badge svg{ flex:0 0 auto; }
+  .badge .b-sm{ font-size:.66rem; opacity:.85; display:block; line-height:1.1; }
+  .badge .b-lg{ font-size:1.05rem; font-weight:600; font-family:"Gabarito"; line-height:1.1; }
+  .badge.soon{ opacity:.55; }
+
+  /* Phone mockup */
+  .phone{ justify-self:center; width:270px; height:548px; border-radius:42px; background:var(--card);
+          border:1px solid var(--line); box-shadow:0 30px 60px -28px rgba(108,92,231,.45); padding:16px; position:relative; }
+  .phone .notch{ width:120px; height:26px; background:var(--bg); border-radius:0 0 16px 16px; position:absolute; top:0; left:50%; transform:translateX(-50%); }
+  .screen{ height:100%; border-radius:30px; background:linear-gradient(180deg,var(--purple-soft),var(--card)); padding:26px 20px; display:flex; flex-direction:column; }
+  .chip{ align-self:flex-start; background:var(--card); border:1px solid var(--line); color:var(--muted);
+         font-size:.78rem; padding:5px 12px; border-radius:999px; }
+  .ring{ margin:30px auto 24px; display:block; }
+  .ring circle{ fill:none; stroke-width:10; }
+  .ring .track{ stroke:var(--line); }
+  .ring .melt{ stroke:var(--purple); stroke-linecap:round; transform:rotate(-90deg); transform-origin:center;
+               stroke-dasharray:534; stroke-dashoffset:150; animation:melt 9s ease-in-out infinite alternate; }
+  @keyframes melt{ from{ stroke-dashoffset:120 } to{ stroke-dashoffset:430 } }
+  @media (prefers-reduced-motion: reduce){ .ring .melt{ animation:none; } }
+  .step-label{ text-align:center; font-size:.74rem; color:var(--muted); margin-bottom:6px; }
+  .step{ text-align:center; font-family:"Gabarito"; font-weight:700; font-size:1.18rem; color:var(--ink); padding:0 6px; }
+  .doit{ margin-top:auto; background:var(--purple); color:#fff; text-align:center; font-family:"Gabarito"; font-weight:700;
+         padding:14px; border-radius:16px; }
+
+  /* Cards */
+  .grid{ display:grid; gap:20px; }
+  .cols-3{ grid-template-columns:repeat(3,1fr); }
+  .cols-2{ grid-template-columns:repeat(2,1fr); }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px; }
+  .card .ic{ width:42px; height:42px; border-radius:12px; background:var(--purple-soft); display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .card .ic span{ width:16px; height:16px; border-radius:5px; background:var(--purple); display:block; }
+  .card h3{ margin-bottom:.3em; }
+  .card p{ margin:0; font-size:.97rem; }
+
+  .center{ text-align:center; max-width:620px; margin:0 auto 40px; }
+  .center p{ font-size:1.05rem; }
+
+  /* Steps */
+  .steps{ counter-reset:s; }
+  .steps .card{ position:relative; }
+  .steps .card::before{ counter-increment:s; content:counter(s); font-family:"Gabarito"; font-weight:800; color:var(--purple);
+                        font-size:1.1rem; width:30px; height:30px; border-radius:9px; background:var(--purple-soft);
+                        display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+
+  /* Philosophy */
+  .philo{ background:var(--purple); color:#fff; border-radius:28px; padding:54px 40px; text-align:center; }
+  .philo h2{ color:#fff; }
+  .philo p{ color:rgba(255,255,255,.92); max-width:60ch; margin:0 auto 0; font-size:1.08rem; }
+
+  /* FAQ */
+  details{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:4px 20px; margin-bottom:12px; }
+  summary{ cursor:pointer; font-family:"Gabarito"; font-weight:700; padding:16px 0; list-style:none; color:var(--ink); }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"+"; float:right; color:var(--purple); font-weight:800; font-size:1.2rem; }
+  details[open] summary::after{ content:"–"; }
+  details p{ margin:0 0 16px; }
+
+  /* CTA + footer */
+  .finalcta{ text-align:center; }
+  .finalcta .badges{ justify-content:center; }
+  footer{ border-top:1px solid var(--line); padding:36px 0 56px; }
+  .foot{ display:flex; flex-wrap:wrap; gap:18px 28px; align-items:center; justify-content:space-between; }
+  .foot a{ color:var(--muted); text-decoration:none; font-size:.93rem; }
+  .foot a:hover{ color:var(--ink); }
+  .disclaimer{ font-size:.82rem; color:var(--muted); margin-top:22px; max-width:70ch; }
+
+  @media (max-width:820px){
+    .hero{ grid-template-columns:1fr; gap:34px; text-align:center; padding-top:40px; }
+    .hero .lede{ margin-inline:auto; }
+    .badges{ justify-content:center; }
+    .cols-3{ grid-template-columns:1fr; }
+    .cols-2{ grid-template-columns:1fr; }
+    section{ padding:54px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span> Hop</a>
+    <a class="cta" href="#get">Get the app</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">Built for ADHD brains</div>
+      <h1>Actually finish what you start.</h1>
+      <p class="lede">Hop shows you one small step at a time — no lists, no streaks, no guilt. Brain dump, and Hop breaks it down.</p>
+      <div class="badges" id="get">
+        <!-- Apple -->
+        <a class="badge" href="https://apps.apple.com/app/id6779776126" aria-label="Download on the App Store">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2 1.6-2.9 1.7-3-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .6 1 1.4 2.1 2.4 2 1-.04 1.3-.6 2.5-.6s1.5.6 2.6.6c1.1 0 1.8-1 2.4-2 .8-1.1 1.1-2.2 1.1-2.3-.02-.01-2.1-.8-2.1-3.2zM14.6 6.2c.5-.7.9-1.6.8-2.5-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.4.9.07 1.8-.5 2.3-1.1z"/></svg>
+          <span><span class="b-sm">Download on the</span><span class="b-lg">App Store</span></span>
+        </a>
+        <!-- Google Play: not live yet → non-link "Coming soon" placeholder (add real link at Android launch). -->
+        <span class="badge soon" role="img" aria-label="Coming soon on Google Play">
+          <svg width="20" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 20.5l10-10-2.7-2.7L3.6 3z" opacity=".0"/><path fill="currentColor" d="M3.9 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1l9-9.1-9-9.7zm12.3 6.3L6.9 3.6l9.3 5.3zm0 6.2L6.9 20.4l9.3-9.6zM20.5 11l-2.6-1.5-2 2 2 2L20.5 13c.7-.4.7-1.6 0-2z"/></svg>
+          <span><span class="b-sm">Coming soon to</span><span class="b-lg">Google Play</span></span>
+        </span>
+      </div>
+      <p class="trust"><b>Free to start</b> · No ads · No tracking, ever · No account needed</p>
+    </div>
+
+    <!-- Phone mockup (CSS/SVG — dış görsel yok) -->
+    <div class="phone" aria-hidden="true">
+      <span class="notch"></span>
+      <div class="screen">
+        <span class="chip">Clean the kitchen</span>
+        <svg class="ring" width="170" height="170" viewBox="0 0 190 190">
+          <circle class="track" cx="95" cy="95" r="85"></circle>
+          <circle class="melt" cx="95" cy="95" r="85"></circle>
+        </svg>
+        <div class="step-label">YOUR ONE STEP</div>
+        <div class="step">Put one dish in the sink</div>
+        <div class="doit">Done</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM → SOLUTION -->
+  <section class="wrap">
+    <div class="center">
+      <div class="eyebrow">Sound familiar?</div>
+      <h2>The problem isn't you. It's the tool.</h2>
+      <p>Most apps hand your ADHD brain a long list and a guilt trip. Hop does the opposite.</p>
+    </div>
+    <div class="grid cols-3">
+      <div class="card"><div class="ic"><span></span></div><h3>Can't get started</h3><p>Task paralysis is real. Hop hands you a first step that takes 2 minutes or less — small enough to actually begin.</p></div>
+      <div class="card"><div class="ic"><span></span></div><h3>Drowning in lists</h3><p>Hop hides the list and shows only your next step. One thing on screen, ever — so there's nothing to feel behind on.</p></div>
+      <div class="card"><div class="ic"><span></span></div><h3>Time slips away</h3><p>A numberless, melting timer lets you feel time pass — without a stressful countdown ticking at you.</p></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="wrap">
+    <div class="center">
+      <div class="eyebrow">How it works</div>
+      <h2>Brain dump in. One step out.</h2>
+    </div>
+    <div class="grid cols-3 steps">
+      <div class="card"><h3>Dump everything</h3><p>Get it all out of your head — messy is completely fine. One field, no categories, no dates required.</p></div>
+      <div class="card"><h3>Hop breaks it down</h3><p>Each task becomes tiny, concrete steps. The very first one always takes 2 minutes or less.</p></div>
+      <div class="card"><h3>Do one step</h3><p>You see a single step on screen. Do it, and the next one quietly appears. That's the whole app.</p></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="wrap">
+    <div class="center">
+      <div class="eyebrow">What's inside</div>
+      <h2>Gentle tools for the hard parts</h2>
+    </div>
+    <div class="grid cols-3">
+      <div class="card"><h3>One step on screen</h3><p>The next thing, and only the next thing. No overwhelm, no scrolling a to-do list.</p></div>
+      <div class="card"><h3>Numberless timer</h3><p>A melting ring you can feel — no anxious countdown, no red.</p></div>
+      <div class="card"><h3>A counter that never resets</h3><p>No streaks to break. Skip a day and Hop just says “welcome back.”</p></div>
+      <div class="card"><h3>Body-double sounds</h3><p>Ambient “someone’s here” audio for focus when working alone feels hard.</p></div>
+      <div class="card"><h3>Widgets &amp; Apple Watch</h3><p>Your next step, always one glance away on your home screen and wrist.</p></div>
+      <div class="card"><h3>Focus shield &amp; voice</h3><p>Quietly hold back distracting apps (iOS), and brain-dump just by speaking.</p></div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="wrap">
+    <div class="philo">
+      <h2>Why no streaks?</h2>
+      <p>Because streaks punish the exact brains that need the most grace. Hop’s journey counter never resets, and we say “welcome back” — never “you missed 3 days.” It’s built on the science of executive function and task chunking, not productivity-guru hustle.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="wrap">
+    <div class="center"><div class="eyebrow">FAQ</div><h2>Good questions</h2></div>
+    <div style="max-width:760px;margin:0 auto;">
+      <details open><summary>Is Hop free?</summary><p>Yes. Hop is free to use, with unlimited offline task breakdown. Hop+ unlocks unlimited AI smart-splitting and premium focus tools. No ads, ever — even on the free plan.</p></details>
+      <details><summary>Does it work offline?</summary><p>Yes. Rule-based task breakdown works offline and free, always. Smart (AI) splitting needs a connection.</p></details>
+      <details><summary>Is my data private?</summary><p>Hop has no ads and no tracking. Smart (AI) splitting sends the text you choose to split to our server to process it — you opt in first. Everything else stays on your device, and there’s no account or email required.</p></details>
+      <details><summary>Which devices?</summary><p>Hop is available on iPhone, with Apple Watch and home-screen widgets. Android is coming soon.</p></details>
+      <details><summary>Do I need to sign up?</summary><p>No. No account, no email, no password. Open the app and go.</p></details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="wrap finalcta">
+    <h2>Start with one step.</h2>
+    <p>Free to download. No ads, no tracking, no guilt.</p>
+    <div class="badges">
+      <a class="badge" href="https://apps.apple.com/app/id6779776126" aria-label="Download on the App Store">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.7c0-2 1.6-2.9 1.7-3-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.4-.4 6 1 8 .6 1 1.4 2.1 2.4 2 1-.04 1.3-.6 2.5-.6s1.5.6 2.6.6c1.1 0 1.8-1 2.4-2 .8-1.1 1.1-2.2 1.1-2.3-.02-.01-2.1-.8-2.1-3.2zM14.6 6.2c.5-.7.9-1.6.8-2.5-.8 0-1.7.5-2.3 1.2-.5.6-.9 1.5-.8 2.4.9.07 1.8-.5 2.3-1.1z"/></svg>
+        <span><span class="b-sm">Download on the</span><span class="b-lg">App Store</span></span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div class="foot">
+    <a class="brand" href="#top" style="font-size:1.1rem;"><span class="mark" aria-hidden="true"></span> Hop</a>
+    <nav style="display:flex;gap:22px;flex-wrap:wrap;">
+      <a href="https://mhmtkas.github.io/hop-legal/privacy.html">Privacy</a>
+      <a href="https://mhmtkas.github.io/hop-legal/terms.html">Terms</a>
+      <a href="https://mhmtkas.github.io/hop-legal/support.html">Support</a>
+    </nav>
+  </div>
+  <p class="disclaimer">Hop is a wellness tool designed to support focus — it is not medical advice, diagnosis, or treatment for ADHD or any condition. For diagnosis or treatment, please consult a qualified professional. © 2026 Hop.</p>
+</footer>
+
+</body>
+</html>
